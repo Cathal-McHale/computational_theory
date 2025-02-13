@@ -28,20 +28,21 @@ This project demonstrates fundamental binary operations in Python, including bit
 
 - Ensures bit shifts stay within 32-bit limits.
 
-- **Reference**: Circular Shift (Wikipedia)
+- **Reference**: [(https://en.wikipedia.org/wiki/Circular_shift)](https://en.wikipedia.org/wiki/Circular_shift)
 
 - Bitwise Right Rotation (rotr)
 
 - Rotates the bits of a 32-bit unsigned integer to the right by n places.
 
-- **Reference**: Circular Shift (Wikipedia)
+- **Reference**: [(https://en.wikipedia.org/wiki/Circular_shift)](https://en.wikipedia.org/wiki/Circular_shift)
 
 - Binary Representation (bin_representation)
 
 - Returns a 32-bit binary representation of a number as a string.
 
-- **Reference**: Bitwise Operators in Python
-
+- **Reference**: 
+- [Bitwise Operators in Python](https://www.w3schools.com/python/python_operators.asp)
+- https://www.w3schools.com/python/python_operators.asp
 # Choose Function (ch)
 
 - Implements the bitwise Choose (CH) operation.
@@ -50,7 +51,10 @@ This project demonstrates fundamental binary operations in Python, including bit
 
 - Formula: ch(x, y, z) = (x & y) ^ (~x & z)
 
-- **Reference**: SHA-2 (Wikipedia)
+- **Reference**:
+- [SHA-2 (Wikipedia)](https://en.wikipedia.org/wiki/SHA-2)
+- https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+- https://csrc.nist.gov/projects/secure-hashing
 
 # Majority Function (maj)
 
@@ -60,7 +64,8 @@ This project demonstrates fundamental binary operations in Python, including bit
 
 - Formula: maj(x, y, z) = (x & y) ^ (x & z) ^ (y & z)
 
-- **Reference**: Majority Function (Wikipedia)
+- **Reference**: 
+- [Majority Function (Wikipedia)](https://en.wikipedia.org/wiki/Majority_function)
 
 
 # Task 2: Hash Functions
@@ -73,7 +78,8 @@ This section covers hash functions, specifically implementing and testing a hash
 - Converts a given string into an integer hash value.
 - Uses a rolling hash approach, where each character contributes to the final hash value.
 - Ensures values fit within 101 buckets using modular arithmetic.
-- **Reference**: [Hash Functions in C and Python](https://realpython.com/python-hash-functions/)
+- **Reference**: 
+- [Hash Functions in C and Python](https://realpython.com/python-hash-functions/)
 
 #### **Mathematical Formula**
 The hash function is implemented using the formula:
