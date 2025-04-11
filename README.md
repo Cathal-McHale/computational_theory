@@ -1,5 +1,5 @@
 # computational_theory
-
+## Cathal McHale 
 ## Prerequisites
 
 Python 3.13.2
@@ -9,132 +9,222 @@ Jupyter Notebook (optional but recommended)
 ## Execution Steps:
 
 Clone the repository or copy the script.
-
+- git clone https://github.com/Cathal-McHale/computational_theory.git
 Run the Python script using:
 Jupyter Notebook and run each cell individually or run all.
 
 
-## Task 1
-- 32 bits unsigned -(https://www.geeksforgeeks.org/binary-representation-of-a-given-number/)
-# Binary Operations in Python
-
-This project demonstrates fundamental binary operations in Python, including bitwise rotations, bit selection, and majority voting. These operations are commonly used in cryptographic applications and low-level computing tasks.
+## Task 1: Binary Operations in Python
+This task explores low-level bitwise operations used in cryptographic algorithms such as SHA-2. It includes left and right rotations, binary formatting, and logic-based selection functions.
 
 ## Features Implemented
+### Bitwise Left Rotation (rotl)
+- Rotates bits of a 32-bit integer to the left.
+- Circular Shift – Wikipedia
 
-# Bitwise Left Rotation (rotl)
+### Bitwise Right Rotation (rotr)
+- Rotates bits to the right, mimicking hardware-level logic.
 
-- Rotates the bits of a 32-bit unsigned integer to the left by n places.
+### Binary Representation
+- Displays binary output padded to 32 bits.
+- Bitwise Operators – W3Schools
 
-- Ensures bit shifts stay within 32-bit limits.
+### Choose Function (ch)
+- Performs conditional selection using: (x & y) ^ (~x & z)
+- SHA-2 – Wikipedia
+- NIST FIPS 180-4
 
-- **Reference**: [(https://en.wikipedia.org/wiki/Circular_shift)](https://en.wikipedia.org/wiki/Circular_shift)
+### Majority Function (maj)
+- Returns the majority bit from x, y, z.
+- Majority Function – Wikipedia
 
-- Bitwise Right Rotation (rotr)
+## Task 2: Hash Function Conversion
+This task implements a string hash function based on Brian Kernighan and Dennis Ritchie's C code from The C Programming Language.
 
-- Rotates the bits of a 32-bit unsigned integer to the right by n places.
+### Features Implemented
+- Custom Hash Function (hash_kr)
+- Converts strings to integer hash values using:
 
-- **Reference**: [(https://en.wikipedia.org/wiki/Circular_shift)](https://en.wikipedia.org/wiki/Circular_shift)
+***hashval = ord(char) + 31 * hashval***
+***return hashval % 101***
+### Analysis
+- 31: Prime number for minimizing collisions.
 
-- Binary Representation (bin_representation)
+- 101: Prime modulus to map hash values into a fixed-size table.
 
-- Returns a 32-bit binary representation of a number as a string.
-
-- **Reference**: 
-- [Bitwise Operators in Python](https://www.w3schools.com/python/python_operators.asp)
-- https://www.w3schools.com/python/python_operators.asp
-# Choose Function (ch)
-
-- Implements the bitwise Choose (CH) operation.
-
-- Selects bits from y where x has bits set to 1 and bits from z where x has bits set to 0.
-
-- Formula: ch(x, y, z) = (x & y) ^ (~x & z)
-
-- **Reference**:
-- [SHA-2 (Wikipedia)](https://en.wikipedia.org/wiki/SHA-2)
-- https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
-- https://csrc.nist.gov/projects/secure-hashing
-
-# Majority Function (maj)
-
-- Takes a majority vote of bits in x, y, and z.
-
-- Outputs a 1 where at least two of x, y, z have 1’s in position i.
-
-- Formula: maj(x, y, z) = (x & y) ^ (x & z) ^ (y & z)
-
-- **Reference**: 
-- [Majority Function (Wikipedia)](https://en.wikipedia.org/wiki/Majority_function)
-
-
-# Task 2: Hash Functions
-
-This section covers hash functions, specifically implementing and testing a hash function inspired by Brian Kernighan and Dennis Ritchie's C code. We will convert the given C function to Python, test it with different inputs, and analyse the choice of values 31 and 101.
-
-### **Features Implemented**
-
-#### **Hash Function (hash_function)**
-- Converts a given string into an integer hash value.
-- Uses a rolling hash approach, where each character contributes to the final hash value.
-- Ensures values fit within 101 buckets using modular arithmetic.
-- **Reference**: 
-- [Hash Functions in C and Python](https://realpython.com/python-hash-functions/)
-
-#### **Mathematical Formula**
-The hash function is implemented using the formula:
-```
-hashval = ord(char) + 31 * hashval
-hashval = hashval % 101  # Ensuring distribution within 101 buckets
-```
-- **31 is a prime number**, reducing the risk of hash collisions.
-- **101 is also a prime number**, ensuring better distribution when applying the modulus operation.
-- The combination of multiplication and modulus makes it efficient for rolling hash algorithms like **Rabin-Karp**.
-- **Reference**: [Modular Hashing](https://en.wikipedia.org/wiki/Hash_function)
-- [Real Python - Hash Functions](https://realpython.com/python-hash-functions/)
-- [Rabin-Karp Algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm)
-- [Modular Hashing](https://en.wikipedia.org/wiki/Hash_function)
+### References
+- Hash Functions – Real Python
+- Rabin–Karp Algorithm
+- Modular Hashing – Wikipedia
 
 ## Task 3: SHA-256 Padding
-- This section explores the SHA-256 padding, implementing a function to calcualte the correct padding for a given file. The function follows the SHA-256 padding specification to ensure messages are prepared correctly before hashing.
+This task implements the message padding scheme used in SHA-2. It ensures the input is aligned to a 512-bit boundary.
 
-## Features Implemented
-### SHA-256 Padding Function
-- Reads a file and computes its SHA-256 paddding
-- appends:
-    - A single 1 bit (0x80 in hex)
-    - Enough 0 bits to reach the nearest 512-bit block
-    - The original message length as a 64-bit big-endian integer
-## References 
-- https://en.wikipedia.org/wiki/SHA-2
-- https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+### Features Implemented
+- Reads a file’s content and pads it according to SHA-256 rules:
+- Appends 0x80 (a single 1 bit)
+- Pads with 0x00 until message is 64 bits short of 512-bit block
+- Appends original message length in 64-bit big-endian
 
-### Mathamatical Concept
-***********************************************************
-padding = 0x80  # Append '1' bit
-zero_padding = (56 - (message_length + 1) % 64) % 64 * 0x00
-length_padding = original_length_in_bits (as 64-bit big-endian integer)
-***********************************************************
-- Ensures message length is a multiple of 512 bits
-- Encodes message length to prevent collision vulnerabilities 
+### References
+- SHA-2 – Wikipedia
+- FIPS PUB 180-4
 
-
-# Task 4 Prime Numbers
-This section implements two different algorithms to compute the first 1000 prime numbers. the two methods used are:
-1. Sieve of Eratosthenes (Efficient for finding many prime numbers)
-2. Basic Trial Division (Simpler but slower)
+## Task 4: Prime Number Generation
+This task compares two algorithms for generating prime numbers.
 
 ## Features Implemented
 ### Sieve of Eratosthenes
-- Uses a boolean array to mark non-prime numbers
-- Iterates through numbers, marking multiples as non-prime
-- Time complexity: O(n log log n), efficient for generating large sets of primes.
+- Marks non-primes in a boolean array
+- Efficient: O(n log log n)
 
-### Trial Division Method
-- Iterates over numbers, testing divisibility by known primes
-- Stops checking once a divisor greater than sqrt(n) is reached
-- Time Complexity: O(n sqrt(n)), much slower than the sieve method.
+### Trial Division
+- Checks each number’s divisibility up to √n
+- Simpler, but slower: O(n √n)
 
 ### References
--  https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
--  https://en.wikipedia.org/wiki/Trial_division
+- Sieve of Eratosthenes – Wikipedia
+- Trial Division – Wikipedia
+
+## Task 5: Square Root Fractional Bits
+This task replicates SHA-2 constant generation by extracting the fractional parts of √p for the first 100 primes and converting them into 32-bit integers.
+
+### Features Implemented
+- Computes square roots using math.sqrt()
+- Extracts fractional part using % 1
+
+### Converts to binary:
+***int((math.sqrt(prime) % 1) * (2 ** 32))***
+### References
+- SHA-2 Constants – Wikipedia
+- IEEE 754 Format
+- The Prime Pages
+
+
+### Task 6: SHA-256 Proof of Work
+This task mimics a proof-of-work algorithm by finding English word(s) whose SHA-256 hash starts with the most leading 0 bits.
+
+## Features Implemented
+- Uses nltk.corpus.words for dictionary input
+- Hashes words using SHA-256
+- Converts hashes to binary
+- Counts leading zero bits and returns top result(s)
+- Validates dictionary inclusion
+
+### Code Concept
+***bin_hash = bin(int(hash_hex, 16))[2:].zfill(256)***
+***leading_zeros = len(bin_hash) - len(bin_hash.lstrip('0'))***
+
+### References
+- NLTK Words Corpus
+- Python hashlib
+- Proof-of-Work – Wikipedia
+
+## Task 7: Turing Machine – Binary Increment
+This task simulates a Turing Machine that increments a binary number, treating the least significant bit as the rightmost digit.
+
+## Features Implemented
+- Scans tape from left to right
+- Flips trailing 1s to 0 until a 0 is found
+- Flips the first 0 to a 1, completing the increment
+
+### E.g.
+***Input Tape  : 100111***
+***Output Tape : 101000***
+## References
+- Turing Machine – Wikipedia
+
+## Task 8: Bubble Sort Comparison Count
+This task analyzes the number of comparisons required to sort every permutation of [1, 2, 3, 4, 5] using Bubble Sort.
+
+## Features Implemented
+- Generates all 5! = 120 permutations using itertools.permutations
+- Sorts each permutation using Bubble Sort
+
+### Tracks and prints:
+- Comparisons per permutation
+- Minimum, maximum, and average comparisons
+- Permutations that cause best and worst cases
+
+Output E.g.
+***(1, 2, 3, 4, 5) -> Comparisons: 10***
+***(5, 4, 3, 2, 1) -> Comparisons: 10***
+
+### Average comparisons: 10.00
+
+## References
+- Bubble Sort – GeeksforGeeks
+- Big O Cheat Sheet
+- MIT 6.006 – Algorithms
+
+### Task 1: Binary Operations
+
+- Circular Shift – Wikipedia: https://en.wikipedia.org/wiki/Circular_shift
+
+- Bitwise Operators in Python – W3Schools: https://www.w3schools.com/python/python_operators.asp
+
+- SHA-2 – Wikipedia: https://en.wikipedia.org/wiki/SHA-2
+
+- NIST FIPS 180-4 (SHA-2 Standard): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+
+- NIST Secure Hashing Project: https://csrc.nist.gov/projects/secure-hashing
+
+- Majority Function – Wikipedia: https://en.wikipedia.org/wiki/Majority_function
+
+- Binary Representation – GeeksforGeeks: https://www.geeksforgeeks.org/binary-representation-of-a-given-number/
+
+### Task 2: Hash Function Conversion
+
+- Hash Functions in Python – Real Python: https://realpython.com/python-hash-functions/
+
+- Modular Hashing – Wikipedia: https://en.wikipedia.org/wiki/Hash_function
+
+- Rabin–Karp Algorithm – Wikipedia: https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm
+
+### Task 3: SHA-256 Padding
+
+- SHA-2 – Wikipedia: https://en.wikipedia.org/wiki/SHA-2
+
+- FIPS PUB 180-4 – NIST (PDF): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
+
+### Task 4: Prime Number Generation
+
+- Sieve of Eratosthenes – Wikipedia: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+- Trial Division – Wikipedia: https://en.wikipedia.org/wiki/Trial_division
+
+### Task 5: Square Root Fractional Bits
+
+- The Prime Pages – UTM: https://primes.utm.edu/
+
+- IEEE 754 Floating-Point Standard – Wikipedia: https://en.wikipedia.org/wiki/IEEE_754
+
+- SHA-2 – Wikipedia (Constants Reference): https://en.wikipedia.org/wiki/SHA-2
+
+### Task 6: SHA-256 Proof of Work
+
+- Python hashlib – Official Docs: https://docs.python.org/3/library/hashlib.html
+
+- NLTK Words Corpus – API Docs: https://www.nltk.org/api/nltk.corpus.html
+
+- Proof-of-Work – Wikipedia: https://en.wikipedia.org/wiki/Proof_of_work
+
+### Task 7: Turing Machine
+
+- Turing Machine – Wikipedia: https://en.wikipedia.org/wiki/Turing_machine
+
+### Task 8: Bubble Sort Complexity
+
+- Bubble Sort – GeeksforGeeks: https://www.geeksforgeeks.org/bubble-sort/
+
+- MIT OpenCourseWare – 6.006 Introduction to Algorithms: https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/
+
+- Big O Cheat Sheet: https://www.bigocheatsheet.com/
+
+### General Python & Tooling
+
+- Python Official Documentation: https://docs.python.org/3/
+
+- Stack Overflow – General Programming Help: https://stackoverflow.com/
+
+- GeeksforGeeks – Python Index: https://www.geeksforgeeks.org/python-programming-language/
