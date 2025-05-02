@@ -15,8 +15,7 @@ Jupyter Notebook and run each cell individually or run all.
 
 
 # Task 1: Binary Operations in Python
-This task explores low-level bitwise operations used in cryptographic algorithms such as SHA-2. It includes left and right rotations, binary formatting, and logic-based selection functions.
-
+This task focuses on implementing and understanding low-level bitwise operations that are foundational in cryptographic algorithms, most notably the SHA-2 (Secure Hash Algorithm 2) family. These operations are essential because modern cryptographic functions rely heavily on bit manipulation to ensure data diffusion and confusion — core principles in cryptographic security. By simulating these operations in Python, this task deepens your understanding of how cryptographic primitives work at the binary level.
 ## Features Implemented
 ### Bitwise Left Rotation (rotl)
 - Rotates bits of a 32-bit integer to the left.
@@ -39,7 +38,17 @@ This task explores low-level bitwise operations used in cryptographic algorithms
 - Majority Function – Wikipedia
 
 # Task 2: Hash Function Conversion
-This task implements a string hash function based on Brian Kernighan and Dennis Ritchie's C code from The C Programming Language.
+This task involves implementing a classic string hash function originally written in C by Brian Kernighan and Dennis Ritchie in The C Programming Language. The purpose of the function is to efficiently map strings to integers — a foundational step in constructing hash tables and dictionaries.
+
+The original C code iterates over each character of a string, applying a polynomial rolling hash computation:
+
+**unsigned hash(char *s) {**
+    **unsigned hashval;**
+    **for (hashval = 0; *s != '\0'; s++)**
+        **hashval = *s + 31 * hashval;**
+    **return hashval % 101;**
+**}**
+
 
 ### Features Implemented
 - Custom Hash Function (hash_kr)
@@ -48,7 +57,7 @@ This task implements a string hash function based on Brian Kernighan and Dennis 
 ***hashval = ord(char) + 31 * hashval***
 ***return hashval % 101***
 ### Analysis
-- 31: Prime number for minimizing collisions.
+- 31: Prime number for minimising collisions.
 
 - 101: Prime modulus to map hash values into a fixed-size table.
 
@@ -58,7 +67,7 @@ This task implements a string hash function based on Brian Kernighan and Dennis 
 - Modular Hashing – Wikipedia
 
 # Task 3: SHA-256 Padding
-This task implements the message padding scheme used in SHA-2. It ensures the input is aligned to a 512-bit boundary.
+This task implements the message padding procedure specified in the SHA-2 family of hash functions, specifically SHA-256. The goal of the padding is to prepare an arbitrary-length input so that it can be processed in fixed-size 512-bit (64-byte) blocks by the compression function.
 
 ### Features Implemented
 - Reads a file’s content and pads it according to SHA-256 rules:
@@ -71,7 +80,7 @@ This task implements the message padding scheme used in SHA-2. It ensures the in
 - FIPS PUB 180-4
 
 # Task 4: Prime Number Generation
-This task compares two algorithms for generating prime numbers.
+This task explores and compares two classical algorithms for generating the first 100 prime numbers. Prime number generation is a foundational concept in computer science and cryptography, underpinning many systems in secure communications, hashing, and number theory.
 
 ## Features Implemented
 ### Sieve of Eratosthenes
@@ -87,7 +96,7 @@ This task compares two algorithms for generating prime numbers.
 - Trial Division – Wikipedia
 
 # Task 5: Square Root Fractional Bits
-This task replicates SHA-2 constant generation by extracting the fractional parts of √p for the first 100 primes and converting them into 32-bit integers.
+This task replicates a key step in the initialisation of the SHA-2 family of cryptographic hash functions: extracting mathematical constants derived from irrational numbers. Specifically, it involves computing the first 32 bits of the fractional part of the square roots of the first 100 prime numbers.
 
 ### Features Implemented
 - Computes square roots using math.sqrt()
@@ -102,7 +111,7 @@ This task replicates SHA-2 constant generation by extracting the fractional part
 
 
 # Task 6: SHA-256 Proof of Work
-This task mimics a proof-of-work algorithm by finding English word(s) whose SHA-256 hash starts with the most leading 0 bits.
+This task simulates the proof-of-work concept used in blockchain and cryptographic systems by searching for English word(s) whose SHA-256 hash starts with the highest number of leading zero bits.
 
 ## Features Implemented
 - Uses nltk.corpus.words for dictionary input
@@ -121,7 +130,7 @@ This task mimics a proof-of-work algorithm by finding English word(s) whose SHA-
 - Proof-of-Work – Wikipedia
 
 # Task 7: Turing Machine – Binary Increment
-This task simulates a Turing Machine that increments a binary number, treating the least significant bit as the rightmost digit.
+This task implements a basic Turing Machine that performs binary incrementation—adding 1 to a binary number. The machine starts at the left-most non-blank symbol on the tape and reads to the right, treating the right-most digit as the least significant bit (LSB), just as in standard binary arithmetic.
 
 ## Features Implemented
 - Scans tape from left to right
@@ -135,7 +144,9 @@ This task simulates a Turing Machine that increments a binary number, treating t
 - Turing Machine – Wikipedia
 
 # Task 8: Bubble Sort Comparison Count
-This task analyzes the number of comparisons required to sort every permutation of [1, 2, 3, 4, 5] using Bubble Sort.
+This task investigates the computational complexity of the Bubble Sort algorithm by analysing the number of comparisons required to sort every permutation of the list:
+**L = [1, 2, 3, 4, 5]**
+The goal is to highlight how the input order affects the performance of the algorithm in terms of comparison count, a fundamental metric in algorithm analysis.
 
 ## Features Implemented
 - Generates all 5! = 120 permutations using itertools.permutations
