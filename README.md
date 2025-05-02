@@ -1,6 +1,6 @@
 # computational_theory
 ## Cathal McHale 
-## Prerequisites
+### Prerequisites
 
 Python 3.13.2
 
@@ -14,7 +14,7 @@ Run the Python script using:
 Jupyter Notebook and run each cell individually or run all.
 
 
-## Task 1: Binary Operations in Python
+# Task 1: Binary Operations in Python
 This task explores low-level bitwise operations used in cryptographic algorithms such as SHA-2. It includes left and right rotations, binary formatting, and logic-based selection functions.
 
 ## Features Implemented
@@ -38,7 +38,7 @@ This task explores low-level bitwise operations used in cryptographic algorithms
 - Returns the majority bit from x, y, z.
 - Majority Function – Wikipedia
 
-## Task 2: Hash Function Conversion
+# Task 2: Hash Function Conversion
 This task implements a string hash function based on Brian Kernighan and Dennis Ritchie's C code from The C Programming Language.
 
 ### Features Implemented
@@ -57,7 +57,7 @@ This task implements a string hash function based on Brian Kernighan and Dennis 
 - Rabin–Karp Algorithm
 - Modular Hashing – Wikipedia
 
-## Task 3: SHA-256 Padding
+# Task 3: SHA-256 Padding
 This task implements the message padding scheme used in SHA-2. It ensures the input is aligned to a 512-bit boundary.
 
 ### Features Implemented
@@ -70,7 +70,7 @@ This task implements the message padding scheme used in SHA-2. It ensures the in
 - SHA-2 – Wikipedia
 - FIPS PUB 180-4
 
-## Task 4: Prime Number Generation
+# Task 4: Prime Number Generation
 This task compares two algorithms for generating prime numbers.
 
 ## Features Implemented
@@ -86,7 +86,7 @@ This task compares two algorithms for generating prime numbers.
 - Sieve of Eratosthenes – Wikipedia
 - Trial Division – Wikipedia
 
-## Task 5: Square Root Fractional Bits
+# Task 5: Square Root Fractional Bits
 This task replicates SHA-2 constant generation by extracting the fractional parts of √p for the first 100 primes and converting them into 32-bit integers.
 
 ### Features Implemented
@@ -101,7 +101,7 @@ This task replicates SHA-2 constant generation by extracting the fractional part
 - The Prime Pages
 
 
-### Task 6: SHA-256 Proof of Work
+# Task 6: SHA-256 Proof of Work
 This task mimics a proof-of-work algorithm by finding English word(s) whose SHA-256 hash starts with the most leading 0 bits.
 
 ## Features Implemented
@@ -120,7 +120,7 @@ This task mimics a proof-of-work algorithm by finding English word(s) whose SHA-
 - Python hashlib
 - Proof-of-Work – Wikipedia
 
-## Task 7: Turing Machine – Binary Increment
+# Task 7: Turing Machine – Binary Increment
 This task simulates a Turing Machine that increments a binary number, treating the least significant bit as the rightmost digit.
 
 ## Features Implemented
@@ -134,7 +134,7 @@ This task simulates a Turing Machine that increments a binary number, treating t
 ## References
 - Turing Machine – Wikipedia
 
-## Task 8: Bubble Sort Comparison Count
+# Task 8: Bubble Sort Comparison Count
 This task analyzes the number of comparisons required to sort every permutation of [1, 2, 3, 4, 5] using Bubble Sort.
 
 ## Features Implemented
@@ -157,7 +157,7 @@ Output E.g.
 - Big O Cheat Sheet
 - MIT 6.006 – Algorithms
 
-### Task 1: Binary Operations
+## Task 1: Binary Operations
 
 - Circular Shift – Wikipedia: https://en.wikipedia.org/wiki/Circular_shift
 
@@ -173,7 +173,7 @@ Output E.g.
 
 - Binary Representation – GeeksforGeeks: https://www.geeksforgeeks.org/binary-representation-of-a-given-number/
 
-### Task 2: Hash Function Conversion
+## Task 2: Hash Function Conversion
 
 - Hash Functions in Python – Real Python: https://realpython.com/python-hash-functions/
 
@@ -181,19 +181,19 @@ Output E.g.
 
 - Rabin–Karp Algorithm – Wikipedia: https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm
 
-### Task 3: SHA-256 Padding
+## Task 3: SHA-256 Padding
 
 - SHA-2 – Wikipedia: https://en.wikipedia.org/wiki/SHA-2
 
 - FIPS PUB 180-4 – NIST (PDF): https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf
 
-### Task 4: Prime Number Generation
+## Task 4: Prime Number Generation
 
 - Sieve of Eratosthenes – Wikipedia: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
 - Trial Division – Wikipedia: https://en.wikipedia.org/wiki/Trial_division
 
-### Task 5: Square Root Fractional Bits
+## Task 5: Square Root Fractional Bits
 
 - The Prime Pages – UTM: https://primes.utm.edu/
 
@@ -201,7 +201,7 @@ Output E.g.
 
 - SHA-2 – Wikipedia (Constants Reference): https://en.wikipedia.org/wiki/SHA-2
 
-### Task 6: SHA-256 Proof of Work
+## Task 6: SHA-256 Proof of Work
 
 - Python hashlib – Official Docs: https://docs.python.org/3/library/hashlib.html
 
@@ -209,12 +209,12 @@ Output E.g.
 
 - Proof-of-Work – Wikipedia: https://en.wikipedia.org/wiki/Proof_of_work
 
-### Task 7: Turing Machine
+## Task 7: Turing Machine
 
 - Turing Machine – Wikipedia: https://en.wikipedia.org/wiki/Turing_machine
 - https://python-course.eu/applications-python/turing-machine.php#:~:text=final%22%20and%20halts.-,Implementation%20of%20a%20Turing%20machine%20in%20Python,we%20can%20have%20negative%20indices.
 - Adding a number by 1:  https://stackoverflow.com/questions/30544560/a-turing-machine-that-adds-one-to-a-binary-number
-### Task 8: Bubble Sort Complexity
+## Task 8: Bubble Sort Complexity
 
 - Bubble Sort – GeeksforGeeks: https://www.geeksforgeeks.org/bubble-sort/
 
