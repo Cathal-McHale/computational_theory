@@ -212,7 +212,8 @@ Output E.g.
 ### Task 7: Turing Machine
 
 - Turing Machine – Wikipedia: https://en.wikipedia.org/wiki/Turing_machine
-
+- https://python-course.eu/applications-python/turing-machine.php#:~:text=final%22%20and%20halts.-,Implementation%20of%20a%20Turing%20machine%20in%20Python,we%20can%20have%20negative%20indices.
+- Adding a number by 1:  https://stackoverflow.com/questions/30544560/a-turing-machine-that-adds-one-to-a-binary-number
 ### Task 8: Bubble Sort Complexity
 
 - Bubble Sort – GeeksforGeeks: https://www.geeksforgeeks.org/bubble-sort/
